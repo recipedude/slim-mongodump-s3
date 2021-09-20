@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker push recipedude/slim-mongodb-s3:latest
+docker push recipedude/slim-mongodump-s3:latest
