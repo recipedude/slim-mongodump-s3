@@ -5,4 +5,4 @@ docker run \
   --rm \
   --env-file config.env \
   --mount type=bind,source=/Users/sean/.aws,target=/root/.aws \
-  recipedude/bullseye-mongodb-s3:latest #sleep 999999
+  recipedude/slim-mongodb-s3:latest #sleep 999999

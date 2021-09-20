@@ -1,12 +1,12 @@
-# bullseye-mongodump-s3
+# slim-mongodump-s3
 
 Debian slim + MongoDump + AWS CLI docker image for Kubernetes; rigged up to backup mongodb, a single database, or a single collection to an s3 bucket
 
-[![docker pulls](https://img.shields.io/docker/pulls/recipedude/bullseye-mongodb-s3.svg?style=plastic)](https://cloud.docker.com/u/recipedude/repository/docker/recipedude/bullseye-mongodb-s3)
+[![docker pulls](https://img.shields.io/docker/pulls/recipedude/slim-mongodb-s3.svg?style=plastic)](https://cloud.docker.com/u/recipedude/repository/docker/recipedude/slim-mongodb-s3)
 
 This docker image contains:
 
-- Debian Bullseye Slim
+- Debian slim Slim
 - [MongoDB Community Edition](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
 
@@ -54,7 +54,7 @@ docker run --name mongodump-s3 \
   -e "AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key"
   -e "AWS_DEFAULT_REGION=us-east-1"
   -e "AWS_S3_BUCKET=your_aws_bucket"
-  recipedude/bullseye-mongodb-s3:latest 
+  recipedude/slim-mongodb-s3:latest 
 ```
 
 **Backup all databases to S3 using AWS profile**
@@ -74,7 +74,7 @@ docker run --name mongodump-s3 --rm \
   -e "MONGODUMP_GZIP=true" \
   -e "MONGODUMP_OPLOG=true" \
   --mount type=bind,source=/Users/username/.aws,target=/root/.aws \
-  recipedude/bullseye-mongodb-s3:latest 
+  recipedude/slim-mongodb-s3:latest 
 ```
 
 Output will look as thus:
@@ -162,7 +162,7 @@ docker run --name mongodump-s3 --rm \
   -e "MONGODUMP_OPLOG=true" \
   -e "MONGODUMP_ARCHIVE=true"
   --mount type=bind,source=/Users/username/.aws,target=/root/.aws \
-  recipedude/bullseye-mongodb-s3:latest 
+  recipedude/slim-mongodb-s3:latest 
 ```
 
 Output will look as thus:
@@ -242,7 +242,7 @@ docker run --name mongodump-s3 --rm \
   -e "MONGODUMP_DB=recipes" \
   -e "MONGODUMP_COLLECTION=ingedient_docs" \
   --mount type=bind,source=/Users/username/.aws,target=/root/.aws \
-  recipedude/bullseye-mongodb-s3:latest 
+  recipedude/slim-mongodb-s3:latest 
 ```
 
 Output will look as thus:

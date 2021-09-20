@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker push recipedude/bullseye-mongodb-s3:latest
+docker push recipedude/slim-mongodb-s3:latest
