@@ -102,9 +102,9 @@ else
   date
   # copy to S3 bucket
   if [[ -n "${AWS_S3_BUCKET}" ]]; then 
-    S3_PATH="s3://${AWS_S3_BUCKET}${AWS_S3_PATH}/${BACKUP_NAME}"
+    S3_PATH="s3://${AWS_S3_BUCKET}${AWS_S3_PATH}"
     echo "S3 object: $S3_PATH"
-    CMD="aws s3 cp \"${BACKUP_NAME}\" \"${S3_PATH}\""
+    CMD="aws s3 cp ${BACKUP_NAME} ${S3_PATH}"
     echo "Running: $CMD"
     $CMD 
     #|| { echo 'aws s3 cp command failed, exiting' ; exit 1; }
