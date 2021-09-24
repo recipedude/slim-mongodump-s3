@@ -90,8 +90,12 @@ else
   CMD="$CMD --uri=\"$MONGO_URI\""
   echo "Backup name: $BACKUP_NAME"
   date
-  $CMD
-  # || { echo 'mongodump failed, exiting' ; exit 1; }
+  
+  if [[ -n "${DEBUG}" ]]; then 
+    $CMD
+  else
+    $CMD || { echo 'mongodump failed, exiting' ; exit 1; }
+  fi
   date
   
   # not archive, need to tar up files
@@ -106,8 +110,12 @@ else
     echo "S3 object: $S3_PATH"
     CMD="aws s3 cp ${BACKUP_NAME} ${S3_PATH}"
     echo "Running: $CMD"
-    $CMD 
-    #|| { echo 'aws s3 cp command failed, exiting' ; exit 1; }
+    if [[ -n "${DEBUG}" ]]; then 
+      $CMD
+    else
+      $CMD || { echo 'aws s3 cp failed, exiting' ; exit 2; }
+    fi
+  date
   fi
 fi
 

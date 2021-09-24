@@ -42,6 +42,13 @@ Pass in the following environment variables for AWS CLI credientals.
 
 For more options you can configure with environment variables refer to: [AWS Environment Variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
+### Debugging
+
+- ```DEBUG``` - enable run.sh debugging - if this variable contains any value error handling and shell exiting will be disabled - 
+              this can be useful when running via a Kubernetes job, the job errors with return code 1 and k8s has 
+              deleted the pod which results in the inability to view the logs of the failed job. Enabling DEBUG prevents 
+              the job from erroring when the `mongodump` or `aws s3 cp` fails but tends to preserv
+
 
 ## Examples
 
